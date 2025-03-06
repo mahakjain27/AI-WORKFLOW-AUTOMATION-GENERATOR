@@ -8,14 +8,33 @@
 <body>
     <h1>Workflow Prediction</h1>
     <form action="/predict" method="post">
-        <label for="input1">Input 1:</label>
-        <input type="text" name="input1" required><br>
-        <label for="input2">Input 2:</label>
-        <input type="text" name="input2" required><br>
-        <label for="input3">Input 3:</label>
-        <input type="text" name="input3" required><br>
-        <label for="input4">Input 4:</label>
-        <input type="text" name="input4" required><br>
+        <label for="business_type">Business Type:</label>
+        <input type="text" name="business_type" placeholder="e.g., Retail" required><br>
+        
+        <label for="workflow_automation_idea">Workflow Automation Idea:</label>
+        <input type="text" name="workflow_automation_idea" placeholder="e.g., Automate Machinery" required><br>
+        
+        <label for="workflow_type">Workflow Type:</label>
+        <input type="text" name="workflow_type" placeholder="e.g., Data Processing" required><br>
+        
+        <label for="key_objective">Key Objective:</label>
+        <input type="text" name="key_objective" placeholder="e.g., Increase Efficiency" required><br>
+        
+        <label for="current_challenges">Current Challenges:</label>
+        <input type="text" name="current_challenges" placeholder="e.g., Manual Error" required><br>
+        
+        <label for="desired_features">Desired Features:</label>
+        <input type="text" name="desired_features" placeholder="e.g., Real-time Update" required><br>
+        
+        <label for="existing_tools">Existing Tools/Software:</label>
+        <input type="text" name="existing_tools" placeholder="e.g., Excel" required><br>
+        
+        <label for="preferred_integrations">Preferred Integrations:</label>
+        <input type="text" name="preferred_integrations" placeholder="e.g., Slack" required><br>
+        
+        <label for="data_sources">Data Sources:</label>
+        <input type="text" name="data_sources" placeholder="e.g., SQL" required><br>
+        
         <button type="submit">Predict</button>
     </form>
     {% if prediction_text %}

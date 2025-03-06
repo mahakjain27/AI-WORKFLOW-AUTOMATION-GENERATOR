@@ -1,14 +1,31 @@
 import pickle
 import os
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 
 # Path to the model file
 model_path = os.path.expanduser("~/Downloads/random_forest_model.pkl")
+
+# Load dataset and create label encoders
+def create_label_encoders():
+    df = pd.read_excel("C:/Users/DELL/Downloads/FINAL_Cleaned.xlsx")
+    label_encoders = {}
+    encoded_df = df.copy()
+
+    for column in df.columns:
+        le = LabelEncoder()
+        encoded_df[column] = le.fit_transform(df[column])
+        label_encoders[column] = le
+
+    return label_encoders
 
 def load_model():
     """Load the random forest model from the specified path."""
     with open(model_path, 'rb') as file:
         model = pickle.load(file)
+    print(f"Loaded model type: {type(model)}")  # Debugging information
     return model
+
 
 # Example usage
 if __name__ == "__main__":
@@ -25,5 +42,3 @@ if __name__ == "__main__":
         predictions = "Model is not a valid estimator."
 
     print(f"Predictions: {predictions}")
-
-    # Optionally, print model parameters or other relevant information
